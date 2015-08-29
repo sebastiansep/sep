@@ -13,29 +13,20 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
-sep.theme.old <- function(p, x.axis.rotation=0)
-{
-  require(ggthemes)
-  p= p + theme_few()
-  p = p + theme(legend.position="top", legend.text =element_text(size=40,face="bold"), legend.title = element_blank(), axis.text.x = element_text(angle = x.axis.rotation,size=40,face="bold"),
-                axis.title=element_text(size=40,face="bold"),  title=element_text(size=40,face="bold"), axis.text.y = element_text(size=40,face="bold"), panel.border = element_blank(),
-                axis.line = element_line(colour = "black", size = 2), legend.title = element_blank())
-  p = p +  guides(colour = guide_legend(override.aes = list(size=6)))
-  return(p)
-}
-theme_sep = function (base_size = 12, base_family = "sans") 
+theme_sep = function (base_size = 12, base_family = "sans")
 {
   require(grid)
-  (theme_foundation(base_size = base_size, base_family = base_family) + 
-     theme(line = element_line(), rect = element_rect(fill = ggthemes_data$fivethirtyeight["ltgray"], 
-                                                      linetype = 0, colour = NA), text = element_text(colour = ggthemes_data$fivethirtyeight["dkgray"]), 
-           axis.text.y = element_text(),  axis.text.x = element_text(), axis.title.y = element_text(angle = 90, size = 20),
-           axis.ticks = element_blank(), legend.background = element_rect(), legend.position = "bottom", 
+  require(ggthemes)
+  (theme_foundation(base_size = base_size, base_family = base_family) +
+     theme(line = element_line(), rect = element_rect(fill = ggthemes_data$fivethirtyeight["ltgray"],
+                                                      linetype = 0, colour = NA), text = element_text(colour = ggthemes_data$fivethirtyeight["dkgray"]),
+           axis.text.y = element_text(),  axis.text.x = element_text(size=15), axis.title.y = element_text(angle = 90, size = 20),
+           axis.ticks = element_blank(), legend.background = element_rect(), legend.position = "bottom",
            legend.direction = "horizontal", legend.box = "vertical", legend.title = element_blank(),
-           panel.grid = element_line(colour = NULL), panel.grid.major = element_line(colour = ggthemes_data$fivethirtyeight["medgray"]), 
-           panel.grid.minor = element_blank(), plot.title = element_text(hjust = 0, 
-                                                                         size = rel(1.5), face = "bold"), 
-           plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect())) 
+           panel.grid = element_line(colour = NULL), panel.grid.major = element_line(colour = ggthemes_data$fivethirtyeight["medgray"]),
+           panel.grid.minor = element_blank(), plot.title = element_text(hjust = 0,
+                                                                         size = rel(1.5), face = "bold"),
+           plot.margin = unit(c(1, 1, 1, 1), "lines"), strip.background = element_rect()))
 }
 
 sep.png <- function(p, filename)
