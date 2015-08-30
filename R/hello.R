@@ -71,4 +71,20 @@ sep.map.data <- function(df, valuemapped)
   return(w2)
 }
 
+sep.region = function(isocodes)
+{
+  require(countrycode)
+  data(countrycode_data)
+  temp = select(countrycode_data, iso3c, region)
+  key = match(isocodes, temp$iso3c)
+  temp$region[key]
+}
+
+sep.old.iso3c = function(countries)
+{
+  data("sepcountrydata")
+  key = match(countries, sepcountrydata$country.name)
+  sepcountrydata$iso3c.new[key]
+}
+
 
